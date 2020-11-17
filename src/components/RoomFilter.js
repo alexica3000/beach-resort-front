@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import {useContext} from 'react';
 import {RoomContext} from "../context";
 import Title from "./Title";
 
 export default class RoomFilter extends Component {
-
     static contextType = RoomContext;
 
     componentDidMount() {
@@ -12,7 +10,6 @@ export default class RoomFilter extends Component {
     }
 
     render() {
-        // const context = useContext(RoomContext);
         const {rooms} = this.props;
         const {
             handleChange,
@@ -73,6 +70,49 @@ export default class RoomFilter extends Component {
                             onChange={handleChange}
                             className="form-control"
                         />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="size">room size</label>
+                        <div className="size-inputs">
+                            <input
+                                type="number"
+                                name="minSize"
+                                id="size"
+                                value={minSize}
+                                onChange={handleChange}
+                                className="size-input"
+                            />
+                            <input
+                                type="number"
+                                name="maxSize"
+                                id="size"
+                                value={maxSize}
+                                onChange={handleChange}
+                                className="size-input"
+                            />
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="single-extra">
+                            <input
+                                type="checkbox"
+                                name="breakfast"
+                                id="breakfast"
+                                checked={breakfast}
+                                onChange={handleChange}
+                            />
+                            <label htmlFor="breakfast">breakfast</label>
+                        </div>
+                        <div className="single-extra">
+                            <input
+                                type="checkbox"
+                                name="pets"
+                                id="pets"
+                                checked={pets}
+                                onChange={handleChange}
+                            />
+                            <label htmlFor="pets">pets</label>
+                        </div>
                     </div>
                 </form>
             </section>
